@@ -1,104 +1,104 @@
 <!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="Asher.zhang's blogs."><meta name="keywords" content="网站关键字, Android, Ktolin, Java, Life"><title> | Zmy</title><link rel="stylesheet" type="text/css" href="//fonts.neworld.org/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">Zmy</h1><a id="logo" href="/.">Zmy</a><p class="description">Light dance and sunset</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title"></h1><div class="post-meta"><a href="/2019/01/28/Activity 启动过程(一)/#comments" class="comment-count"></a><p><span class="date">Jan 28, 2019</span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><h1 id="Activity-启动过程-一"><a href="#Activity-启动过程-一" class="headerlink" title="Activity 启动过程(一)"></a>Activity 启动过程(一)</h1><p>这里讲的是一个Activity启动另一个Activity的过程。<br>首先我们在activity.startActivity(),点进去我们可以看到如下</p>
-<p><img src="media/15486766374750/15486772761818.jpg" alt=""></p>
-<p><img src="media/15486766374750/15486772908727.jpg" alt=""></p>
-<p><img src="media/15486766374750/15486773071393.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486772761818.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486772908727.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486773071393.jpg" alt=""></p>
 <p>在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。</p>
-<p><img src="media/15486766374750/15486776690721.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486776690721.jpg" alt=""></p>
 <p>在这个方法里，调用了ActivityManager.getService().startActivity(),我们先来看看getService()会返回什么对象。</p>
-<p><img src="media/15486766374750/15486778672837.jpg" alt=""></p>
-<p><img src="media/15486766374750/15486778856899.jpg" alt=""></p>
-<p>getService() 只是调用了IActivityManagerSingleton.get()。而IActivityManagerSingleton则是一个Singleton的实例。<br>Singleton的代码如下：<br><img src="media/15486766374750/15486779802660.jpg" alt=""></p>
-<p>从Singleton可以看到，IActivityManagerSingleton.get()在第一次的时候会调用create()，而这个IActivityManagerSingleton 的create() 正是的前面看到的这个方法：<br><img src="media/15486766374750/15486778856899.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486778672837.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486778856899.jpg" alt=""></p>
+<p>getService() 只是调用了IActivityManagerSingleton.get()。而IActivityManagerSingleton则是一个Singleton的实例。<br>Singleton的代码如下：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486779802660.jpg" alt=""></p>
+<p>从Singleton可以看到，IActivityManagerSingleton.get()在第一次的时候会调用create()，而这个IActivityManagerSingleton 的create() 正是的前面看到的这个方法：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486778856899.jpg" alt=""></p>
 <p>这里将通过IActivityManager.Stub.asInterface(b)返回一个IActivityManager对象实例。因此IActivityManagerSingleton.get()也将返回一个IActivityManager对象实例。</p>
-<p>因为笔者这里看的是26的源码，26中增加了IActivityManager.aidl文件，这部分代码需要在<a href="http://androidxref.com/8.0.0_r4/xref/frameworks/base/core/java/android/app/IActivityManager.aidl" target="_blank" rel="noopener">AndroidXref中的IActivityManager.aidl</a>中查看，部分定义如下：<br><img src="media/15486766374750/15486787413207.jpg" alt=""></p>
-<p>我们在使用aidl的时候，AS都会帮我们生成一个Stub和本地的代理对象。IActivityManager也会对应生成一个IActivityManager.Stub类，且它有个子类为ActivityManagerService<br><img src="media/15486766374750/15486794120831.jpg" alt=""></p>
+<p>因为笔者这里看的是26的源码，26中增加了IActivityManager.aidl文件，这部分代码需要在<a href="http://androidxref.com/8.0.0_r4/xref/frameworks/base/core/java/android/app/IActivityManager.aidl" target="_blank" rel="noopener">AndroidXref中的IActivityManager.aidl</a>中查看，部分定义如下：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486787413207.jpg" alt=""></p>
+<p>我们在使用aidl的时候，AS都会帮我们生成一个Stub和本地的代理对象。IActivityManager也会对应生成一个IActivityManager.Stub类，且它有个子类为ActivityManagerService<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486794120831.jpg" alt=""></p>
 <p>而我们之前IActivityManagerSingleton.get()取得的就是一个ActivityManagerService或者是ActivityManagerService的一个代理。</p>
 <blockquote>
 <p>注：这一部分具体参考下Binder的定义及使用。另外我还没有说明如何能找到ActivityManagerService，这一部分都是参考其他文章所得，具体如何通过IActivityManager.aidl定位到这个类的，还需要再捋一捋。</p>
 </blockquote>
-<p>现在我们回到Instrumentation<br><img src="media/15486766374750/15486797142078.jpg" alt=""></p>
+<p>现在我们回到Instrumentation<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486797142078.jpg" alt=""></p>
 <p>ActivityManager.getService() 即返回一个ActivityManagerService或者其代理对象。所以这里最终就是调用了ActivityManagerService.startActivity()<br><br><br><strong>小结一：</strong><br>这里使用简单的时序图来说明方法的调用过程。这里的AMS即时ActivityManagerService的缩写，之后读将采用这个缩写来代码ActivityManagerService.</p>
-<p><img src="media/15486766374750/15486811350826.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486811350826.jpg" alt=""></p>
 <p><br><br><br><br>我们通过前面方法的查找，已经知道启动一个Activity之后，最终会调用系统的ActivityManagerService.startActivity(),接下来我们就看看这个方法又做了哪些操作。</p>
-<p><img src="media/15486766374750/15486816418828.jpg" alt=""></p>
-<p><img src="media/15486766374750/15486816757171.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486816418828.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486816757171.jpg" alt=""></p>
 <p>这里最后调用了mActivityStarter.startActivityMayWait(),这样就将调用过程转交给了ActivityStarter类。</p>
-<p>在这个方法中可以看到下面这一句话，这主要是在收集目标Activity的信息，将信息存储在ActivityInfo中。<br><img src="media/15486766374750/15486819210213.jpg" alt=""></p>
-<p>之后又调用了本类中的startActivityLocked()，如下：<br><img src="media/15486766374750/15486819855403.jpg" alt=""></p>
-<p><img src="media/15486766374750/15486820892862.jpg" alt=""></p>
-<p>在这里校验了调用方法的原因。然后调用了ActivityStarter中的startActivity()。<br><img src="media/15486766374750/15486822330110.jpg" alt=""></p>
-<p>在这个方法中主要做了一些校验，包括：权限校验、component校验、目标activity信息校验等。同时创建一个ActivityRecord对象，用来存放这些校验过后的数据：<br><img src="media/15486766374750/15486827320180.jpg" alt=""></p>
-<p>然后继续调用下一个startActivity()<br><img src="media/15486766374750/15486827457382.jpg" alt=""></p>
-<p><img src="media/15486766374750/15486827875618.jpg" alt=""></p>
+<p>在这个方法中可以看到下面这一句话，这主要是在收集目标Activity的信息，将信息存储在ActivityInfo中。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486819210213.jpg" alt=""></p>
+<p>之后又调用了本类中的startActivityLocked()，如下：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486819855403.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486820892862.jpg" alt=""></p>
+<p>在这里校验了调用方法的原因。然后调用了ActivityStarter中的startActivity()。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486822330110.jpg" alt=""></p>
+<p>在这个方法中主要做了一些校验，包括：权限校验、component校验、目标activity信息校验等。同时创建一个ActivityRecord对象，用来存放这些校验过后的数据：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486827320180.jpg" alt=""></p>
+<p>然后继续调用下一个startActivity()<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486827457382.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486827875618.jpg" alt=""></p>
 <p>在这个startActivity()中将调用ActivityStarter的startActivityUnchecked()，startActivityUnchecked()方法挺长，主要是activity栈的处理，比如是否在栈顶、是否需要新建一个栈。在这个方法中将调用mSupervisor.resumeFocusedStackTopActivityLocked().</p>
-<p>这是怎么回事呢？<br>首先我们回到这里<br><img src="media/15486766374750/15486827457382.jpg" alt=""></p>
+<p>这是怎么回事呢？<br>首先我们回到这里<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486827457382.jpg" alt=""></p>
 <p>我们可以看到第六个参数设置为true，而这个true将一直跟着我们的方法传递下去，直到startActivityUnchecked调用了setInitialState()之后将这个true赋给了ActivityStarter中的mDoResume属性。</p>
-<p><img src="media/15486766374750/15486841490088.jpg" alt=""><br>因此，最后我们将走入这个代码块。<br>这里两段英文，尝试着翻译一下：</p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486841490088.jpg" alt=""><br>因此，最后我们将走入这个代码块。<br>这里两段英文，尝试着翻译一下：</p>
 <blockquote>
 <p>If the activity is not focusable, we can’t resume it, but still would like to make sure it becomes visible as it starts (this will also trigger entry animation). An example of this are PIP activities.Also, we don’t want to resume activities in a task that currently has an overlay as the starting activity just needs to be in the visible paused state until the over is removed.<br>如果Activity不可聚焦，就不能重启它，不过我们仍可保证当它启动的时候是可见的。比如PIP的活动。我们不想重启一个可覆盖任务中的activities，因为开始的活动只需要处于可见的暂停状态，直到移除覆盖。</p>
 <p>If the target stack was not previously focusable (previous top running activity on that stack was not visible) then any prior calls to move the stack to the will not update the focused stack.  If starting the new activity now allows the task stack to be focusable, then ensure that we now update the focused stack accordingly.<br>如果目标栈之前不可获取焦点（之前顶层的activity不可见），那么将该栈移动到不会更新的焦点栈中。如果现在是新建一个activity，就允许任务栈是可以获取焦点的，然后确保我们现在在更新相关的焦点栈。</p>
 <p>(英文太烂，自己都不理解翻译出来的是什么👻 -_-! )</p>
 </blockquote>
 <p>根据上面两段注释，我们可以认为这里会调用mSupervisor.resumeFocusedStackTopActivityLocked(),这里的mSuperVisor对应的是ActivityStackSupervisor类。接着继续看下去：</p>
-<p><img src="media/15486766374750/15486861634048.jpg" alt=""></p>
-<p>我们在之前已经构造出一个ActivityRecord,所以这里会调用mFocusedStack.resumeTopActivityUncheckedLocked().其中mFocuseStack是ActivityStack的一个实例。<br><img src="media/15486766374750/15486862880125.jpg" alt=""></p>
-<p>在resumeTopActivityInnerLocked()中将调用<br><img src="media/15486766374750/15486865513070.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486861634048.jpg" alt=""></p>
+<p>我们在之前已经构造出一个ActivityRecord,所以这里会调用mFocusedStack.resumeTopActivityUncheckedLocked().其中mFocuseStack是ActivityStack的一个实例。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486862880125.jpg" alt=""></p>
+<p>在resumeTopActivityInnerLocked()中将调用<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486865513070.jpg" alt=""></p>
 <p>这里又将调用过程交给了ActivityStackSupervisor。</p>
-<p><img src="media/15486766374750/15486866052523.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486866052523.jpg" alt=""></p>
 <p>这里将调用realStartActivityLocked()</p>
-<p><img src="media/15486766374750/15486866431895.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486866431895.jpg" alt=""></p>
 <p>realStartActivityLocked()又调用了app.thread.scheduleLaunchActivity()，这个app.thread就是客户端调用系统AMS时传递过来的ActivityThread对象，因此这里就是在调用客户端的ActivityThread.scheduleLaunchActivity()</p>
 <blockquote>
 <p>这里客户端指的就是当前的app进程，而服务端指的就是Android系统服务进程,可参看SystemServer类。之后也将会继续沿用客户端和服务端这样的概念。</p>
 </blockquote>
-<p><strong>小结二：</strong><br><img src="media/15486766374750/15486879854107.jpg" alt=""></p>
+<p><strong>小结二：</strong><br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486879854107.jpg" alt=""></p>
 <p><br><br>前面一个小结结束之后，我们已经将调用过程从系统服务回调到了客户端，那么我们现在就接着看客户端做了哪些操作。</p>
 <p>首先我们来看看ActivityThread.scheduleLaunchActivity()</p>
-<p><img src="media/15486766374750/15487254546912.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487254546912.jpg" alt=""></p>
 <p>这个方法中主要是将AMS传递过来的参数封装到ActivityClientRecord的实例中，并将这个ActivityClientRecord发送到消息队列，等待消息的处理。</p>
-<p><img src="media/15486766374750/15487255560742.jpg" alt=""></p>
-<p>查看sendMessage()方法，可以确定消息是通过mH来发送的，我们来看看mH的定义。<br><img src="media/15486766374750/15487256540735.jpg" alt=""></p>
-<p><img src="media/15486766374750/15487256701988.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487255560742.jpg" alt=""></p>
+<p>查看sendMessage()方法，可以确定消息是通过mH来发送的，我们来看看mH的定义。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487256540735.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487256701988.jpg" alt=""></p>
 <p>有定义内容可以知道mH就是一个Handler。<br>由上文我们知道ActivityThread.scheduleLaunchActivity()中发出的是一个LAUNCH_ACTIVITY消息，我们看看接收处的代码。</p>
-<p><img src="media/15486766374750/15487257764437.jpg" alt=""></p>
-<p>这里直接调用handleLaunchActivity() 来处理ActivityClientRecord ，继续查看这个方法<br><img src="media/15486766374750/15487258434872.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487257764437.jpg" alt=""></p>
+<p>这里直接调用handleLaunchActivity() 来处理ActivityClientRecord ，继续查看这个方法<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487258434872.jpg" alt=""></p>
 <p>在这个方法中，有两个明显的方法名称，一个performLaunchActivity()，一个是handleResumeActivity()。我们先来看看performLaunchActivity()，这个方法比较长，内容也比较多，我们细分几段来查看。</p>
-<p>第一段：<br><img src="media/15486766374750/15487261316606.jpg" alt=""></p>
-<p>这里主要通过AMS传递过来的ActivityClientRecord进行包信息和ComponentName信息的构建。同时这个有个createBaseContextForActivity()<br><img src="media/15486766374750/15487263361245.jpg" alt=""></p>
+<p>第一段：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487261316606.jpg" alt=""></p>
+<p>这里主要通过AMS传递过来的ActivityClientRecord进行包信息和ComponentName信息的构建。同时这个有个createBaseContextForActivity()<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487263361245.jpg" alt=""></p>
 <p>在这个方法中将创建ContextImpl对象。<br>由此可到这一段主要是创建Activity上下文信息。</p>
-<p>第二段：<br><img src="media/15486766374750/15487264746227.jpg" alt=""></p>
-<p>mInstrumentation.newActivity() 如下：<br><img src="media/15486766374750/15487266082203.jpg" alt=""></p>
+<p>第二段：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487264746227.jpg" alt=""></p>
+<p>mInstrumentation.newActivity() 如下：<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487266082203.jpg" alt=""></p>
 <p>这里通过反射创建了一个Activity实例。</p>
 <p>第三段：</p>
-<p><img src="media/15486766374750/15487267001597.jpg" alt=""></p>
-<p>这里只是创建一个Applicatio的实例。<br><img src="media/15486766374750/15487269199465.jpg" alt=""></p>
-<p>代码1判断，application对象已经创建，则直接返回，这也是为什么同一个进程中，我们的application可以保持为一个单例的原因。<br>代码2则是创建了Application所需的上下文ContextImpl实例，同时调用Instrumentation.newApplication()创建了Application实例。<br><img src="media/15486766374750/15487270600482.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487267001597.jpg" alt=""></p>
+<p>这里只是创建一个Applicatio的实例。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487269199465.jpg" alt=""></p>
+<p>代码1判断，application对象已经创建，则直接返回，这也是为什么同一个进程中，我们的application可以保持为一个单例的原因。<br>代码2则是创建了Application所需的上下文ContextImpl实例，同时调用Instrumentation.newApplication()创建了Application实例。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487270600482.jpg" alt=""></p>
 <p>这里我们可以看到，Application也是通过反射来创建的。创建完成之后立即调用了Application.attach(),attach()中将继续调用attachBaseContext()</p>
-<p><img src="media/15486766374750/15487272158696.jpg" alt=""></p>
-<p>回到入口方法makeApplication(),继续往下看。<br><img src="media/15486766374750/15487273174539.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487272158696.jpg" alt=""></p>
+<p>回到入口方法makeApplication(),继续往下看。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487273174539.jpg" alt=""></p>
 <p>instrumentation.callApplicationOnCreate(app)</p>
-<p><img src="media/15486766374750/15487273771032.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487273771032.jpg" alt=""></p>
 <p>到这里，我们就将application的创建过程也看完了。所以第四段只是创建Application实例.</p>
 <p>第四段</p>
-<p><img src="media/15486766374750/15487275709948.jpg" alt=""></p>
-<p>代码1就是调用了Activity.attach()。Activity.attach() 主要是创建Window信息。<br>代码2点进去，其实就在调用Activity.performCreate(),而performCreate()将调用onCreate()。<br><img src="media/15486766374750/15487276231544.jpg" alt=""></p>
-<p><img src="media/15486766374750/15487277510425.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487275709948.jpg" alt=""></p>
+<p>代码1就是调用了Activity.attach()。Activity.attach() 主要是创建Window信息。<br>代码2点进去，其实就在调用Activity.performCreate(),而performCreate()将调用onCreate()。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487276231544.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487277510425.jpg" alt=""></p>
 <p><strong>小小结：</strong><br>第一段：创建Activity上下文</p>
 <p>第二段：利用反射创建Activity</p>
 <p>第三段：获取Application实例。如果已经存在则直接方法，如果未创建则利用反射创建Application实例，并调它的attach，onCreate等方法</p>
 <p>第四段：调用Activity的attach和onCreate。值得一提的是attach() 中将创建window信息。</p>
 <p>看到这里，我们基本已经明白了一个新Activity的创建过程，但是它是怎么作为一个界面显示出来的呢？这部分内容和WindowManagerService(简称WMS)相关，我们暂时先不讨论。以往我们常说，Activity在onResume之后才是可见的。那我们接下来就来找找这个说法的答案。</p>
 <p>上文中的handleLaunchActivity(),除了performLaunchActivity(),我们还提到了handleResumeActivity(),接下来就点击去看看，这个方法又做了哪些操作。</p>
-<p><img src="media/15486766374750/15487286148072.jpg" alt=""></p>
-<p>handleResumeActivity() 调用了actiivty.performResume()<br><img src="media/15486766374750/15487286377997.jpg" alt=""></p>
-<p>在performResume()中，注意红框内容，这里分别调用了performRestart() 和mInstrumentation.callActivityOnResume() 分别对应的Activity.onStart()、Activity.reStart()和Activity.onResume().具体调用过程比较简单，这里就不再描述了。<br><img src="media/15486766374750/15487289974956.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487286148072.jpg" alt=""></p>
+<p>handleResumeActivity() 调用了actiivty.performResume()<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487286377997.jpg" alt=""></p>
+<p>在performResume()中，注意红框内容，这里分别调用了performRestart() 和mInstrumentation.callActivityOnResume() 分别对应的Activity.onStart()、Activity.reStart()和Activity.onResume().具体调用过程比较简单，这里就不再描述了。<br><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487289974956.jpg" alt=""></p>
 <p>看到这里，我们也看完了activity.onResume的调用过程。但并没有找到到界面显示时机。我们回到handleResumeActivity()并继续往下看。</p>
-<p><img src="media/15486766374750/15487296112064.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487296112064.jpg" alt=""></p>
 <p>这里主要理解下注释：如果当前Activity的window未添加到WindowManager，这个activity就不可以关闭或打开新的activity。</p>
-<p><img src="media/15486766374750/15487298313638.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487298313638.jpg" alt=""></p>
 <p>这里先是将decor设置为不可见，然后将decor添加到WindowManager中。</p>
-<p><img src="media/15486766374750/15487299092909.jpg" alt=""></p>
-<p><img src="media/15486766374750/15487299393419.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487299092909.jpg" alt=""></p>
+<p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15487299393419.jpg" alt=""></p>
 <p>这里又调用了一次mDecor.setVisibility(View.VISIBLE)将decorview设置为可见了。</p>
 <p>看到这，我们也找到了Activity为什么是在onResume之后才是可见的。</p>
 <p><strong>小结：</strong></p>
