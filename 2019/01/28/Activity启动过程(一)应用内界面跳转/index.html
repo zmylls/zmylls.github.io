@@ -86,16 +86,73 @@
 
 
 
-<meta name="description" content="Asher.zhang&apos;s blogs.">
-<meta property="og:type" content="website">
+<meta name="description" content="Activity启动过程(一)应用内界面跳转这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了Ac">
+<meta property="og:type" content="article">
 <meta property="og:title" content="耀舞夕阳">
-<meta property="og:url" content="https://zmylls.github.io/index.html">
+<meta property="og:url" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/index.html">
 <meta property="og:site_name" content="耀舞夕阳">
-<meta property="og:description" content="Asher.zhang&apos;s blogs.">
+<meta property="og:description" content="Activity启动过程(一)应用内界面跳转这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了Ac">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486772761818.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486772908727.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486773071393.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486776690721.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486778672837.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486778856899.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486779802660.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486778856899.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486787413207.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486794120831.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486797142078.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486811350826.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486816418828.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486816757171.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486819210213.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486819855403.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486820892862.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486822330110.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486827320180.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486827457382.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486827875618.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486827457382.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486841490088.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486861634048.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486862880125.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486865513070.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486866052523.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486866431895.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486879854107.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487254546912.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487255560742.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487256540735.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487256701988.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487257764437.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487258434872.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487261316606.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487263361245.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487264746227.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487266082203.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487267001597.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487269199465.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487270600482.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487272158696.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487273174539.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487273771032.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487275709948.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487276231544.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487277510425.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487286148072.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487286377997.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487289974956.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487296112064.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487298313638.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487299092909.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15487299393419.jpg">
+<meta property="og:updated_time" content="2019-01-29T15:17:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="耀舞夕阳">
-<meta name="twitter:description" content="Asher.zhang&apos;s blogs.">
+<meta name="twitter:description" content="Activity启动过程(一)应用内界面跳转这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了Ac">
+<meta name="twitter:image" content="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486772761818.jpg">
 
 
 
@@ -125,13 +182,13 @@
 
 
 
-  <link rel="canonical" href="https://zmylls.github.io/"/>
+  <link rel="canonical" href="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/"/>
 
 
 
 
 
-  <title>耀舞夕阳</title>
+  <title> | 耀舞夕阳</title>
   
 
 
@@ -150,8 +207,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -254,290 +310,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="耀舞夕阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耀舞夕阳">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/29/Activity启动过程(二)/" itemprop="url">未命名</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-29T11:14:02+08:00">
-                2019-01-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T23:14:51+08:00">
-                2019-01-29
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Activity启动过程(二)上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。
-通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个AP
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/29/Activity启动过程(二)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zmylls.github.io/2019/01/28/Activity 启动过程(一)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="耀舞夕阳">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="耀舞夕阳">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/Activity 启动过程(一)/" itemprop="url">未命名</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-28T19:57:17+08:00">
-                2019-01-28
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T17:44:39+08:00">
-                2019-01-29
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          Activity 启动过程(一)这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下
-
-
-
-在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstru
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/28/Activity 启动过程(一)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -567,9 +342,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/28/Activity启动过程(一)应用内界面跳转/" itemprop="url">未命名</a></h2>
+          <h2 class="post-title" itemprop="name headline"></h2>
         
 
         <div class="post-meta">
@@ -631,8 +404,7 @@
       
 
       
-        
-          <h1 id="Activity启动过程-一-应用内界面跳转"><a href="#Activity启动过程-一-应用内界面跳转" class="headerlink" title="Activity启动过程(一)应用内界面跳转"></a>Activity启动过程(一)应用内界面跳转</h1><p>这里讲的是一个Activity启动另一个Activity的过程。<br>首先我们在activity.startActivity(),点进去我们可以看到如下</p>
+        <h1 id="Activity启动过程-一-应用内界面跳转"><a href="#Activity启动过程-一-应用内界面跳转" class="headerlink" title="Activity启动过程(一)应用内界面跳转"></a>Activity启动过程(一)应用内界面跳转</h1><p>这里讲的是一个Activity启动另一个Activity的过程。<br>首先我们在activity.startActivity(),点进去我们可以看到如下</p>
 <p><img src="/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486772761818.jpg" alt=""></p>
 <p><img src="/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486772908727.jpg" alt=""></p>
 <p><img src="/2019/01/28/Activity启动过程(一)应用内界面跳转/media/15486766374750/15486773071393.jpg" alt=""></p>
@@ -751,14 +523,8 @@
 <li>AMS中完成权限校验、Activity栈处理、目标Activity信息构建，然后通过ActivityThread.scheduleLaunchActivity回调到客户端</li>
 <li>客户端通过handler将线程切换到主线程，然后在handleLaunchActivity() 中完成activity的创建和显示。</li>
 </ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/28/Activity启动过程(一)应用内界面跳转/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+<a id="more"></a>
+
       
     </div>
     
@@ -770,17 +536,51 @@
     
 
     
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    耀舞夕阳
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/" title="">https://zmylls.github.io/2019/01/28/Activity启动过程(一)应用内界面跳转/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
 
     <footer class="post-footer">
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/28/Activity 启动过程(一)/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -790,10 +590,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -801,6 +602,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -821,8 +626,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -864,6 +678,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity启动过程-一-应用内界面跳转"><span class="nav-number">1.</span> <span class="nav-text">Activity启动过程(一)应用内界面跳转</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1013,6 +843,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
