@@ -86,12 +86,12 @@
 
 
 
-<meta name="description" content="Activity 启动过程(一)这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了Activity">
+<meta name="description" content="这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了ActivityManager.getServi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HelloWorld">
+<meta property="og:title" content="Activity启动过程(一)应用内打开Activity">
 <meta property="og:url" content="https://zmylls.github.io/2019/01/28/Activity 启动过程(一)/index.html">
 <meta property="og:site_name" content="耀舞夕阳">
-<meta property="og:description" content="Activity 启动过程(一)这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了Activity">
+<meta property="og:description" content="这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了ActivityManager.getServi">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity%20启动过程(一)/media/15486766374750/15486772761818.jpg">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity%20启动过程(一)/media/15486766374750/15486772908727.jpg">
@@ -148,10 +148,10 @@
 <meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity%20启动过程(一)/media/15486766374750/15487298313638.jpg">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity%20启动过程(一)/media/15486766374750/15487299092909.jpg">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/28/Activity%20启动过程(一)/media/15486766374750/15487299393419.jpg">
-<meta property="og:updated_time" content="2019-01-29T15:44:14.000Z">
+<meta property="og:updated_time" content="2019-01-29T15:46:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HelloWorld">
-<meta name="twitter:description" content="Activity 启动过程(一)这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了Activity">
+<meta name="twitter:title" content="Activity启动过程(一)应用内打开Activity">
+<meta name="twitter:description" content="这里讲的是一个Activity启动另一个Activity的过程。首先我们在activity.startActivity(),点进去我们可以看到如下    在Activity中最终都是调用startActivityForResult(),在这个方法中又调用mInstrumentation.execStartActivity()。  在这个方法里，调用了ActivityManager.getServi">
 <meta name="twitter:image" content="https://zmylls.github.io/2019/01/28/Activity%20启动过程(一)/media/15486766374750/15486772761818.jpg">
 
 
@@ -188,7 +188,7 @@
 
 
 
-  <title>HelloWorld | 耀舞夕阳</title>
+  <title>Activity启动过程(一)应用内打开Activity | 耀舞夕阳</title>
   
 
 
@@ -342,7 +342,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">HelloWorld</h1>
+          <h1 class="post-title" itemprop="name headline">Activity启动过程(一)应用内打开Activity</h1>
         
 
         <div class="post-meta">
@@ -370,7 +370,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T23:44:14+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T23:46:33+08:00">
                 2019-01-29
               </time>
             
@@ -404,7 +404,7 @@
       
 
       
-        <h1 id="Activity-启动过程-一"><a href="#Activity-启动过程-一" class="headerlink" title="Activity 启动过程(一)"></a>Activity 启动过程(一)</h1><p>这里讲的是一个Activity启动另一个Activity的过程。<br>首先我们在activity.startActivity(),点进去我们可以看到如下</p>
+        <p>这里讲的是一个Activity启动另一个Activity的过程。<br>首先我们在activity.startActivity(),点进去我们可以看到如下</p>
 <p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486772761818.jpg" alt="logo"></p>
 <p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486772908727.jpg" alt=""></p>
 <p><img src="/2019/01/28/Activity 启动过程(一)/media/15486766374750/15486773071393.jpg" alt=""></p>
@@ -543,7 +543,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://zmylls.github.io/2019/01/28/Activity 启动过程(一)/" title="HelloWorld">https://zmylls.github.io/2019/01/28/Activity 启动过程(一)/</a>
+    <a href="https://zmylls.github.io/2019/01/28/Activity 启动过程(一)/" title="Activity启动过程(一)应用内打开Activity">https://zmylls.github.io/2019/01/28/Activity 启动过程(一)/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -625,17 +625,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -677,22 +668,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity-启动过程-一"><span class="nav-number">1.</span> <span class="nav-text">Activity 启动过程(一)</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

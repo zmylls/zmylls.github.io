@@ -86,12 +86,12 @@
 
 
 
-<meta name="description" content="Activity启动过程(二)上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Launcher3/目录下。我们">
+<meta name="description" content="title:Activity启动过程(二)启动app上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Laun">
 <meta property="og:type" content="article">
 <meta property="og:title" content="耀舞夕阳">
 <meta property="og:url" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/index.html">
 <meta property="og:site_name" content="耀舞夕阳">
-<meta property="og:description" content="Activity启动过程(二)上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Launcher3/目录下。我们">
+<meta property="og:description" content="title:Activity启动过程(二)启动app上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Laun">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487322574407.jpg">
@@ -146,10 +146,10 @@
 <meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487494666943.jpg">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487495201782.jpg">
 <meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487497072768.jpg">
-<meta property="og:updated_time" content="2019-01-29T15:14:51.000Z">
+<meta property="og:updated_time" content="2019-01-29T15:47:03.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="耀舞夕阳">
-<meta name="twitter:description" content="Activity启动过程(二)上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Launcher3/目录下。我们">
+<meta name="twitter:description" content="title:Activity启动过程(二)启动app上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Laun">
 <meta name="twitter:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg">
 
 
@@ -368,7 +368,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T23:14:51+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-01-29T23:47:03+08:00">
                 2019-01-29
               </time>
             
@@ -402,7 +402,8 @@
       
 
       
-        <h1 id="Activity启动过程-二"><a href="#Activity启动过程-二" class="headerlink" title="Activity启动过程(二)"></a>Activity启动过程(二)</h1><p>上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。</p>
+        <hr>
+<h2 id="title-Activity启动过程-二-启动app"><a href="#title-Activity启动过程-二-启动app" class="headerlink" title="title:Activity启动过程(二)启动app"></a>title:Activity启动过程(二)启动app</h2><p>上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。</p>
 <p>通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是<a href="http://androidxref.com/8.0.0_r4/xref/packages/apps/Launcher3/" target="_blank" rel="noopener">Launcher3</a>，它在/packages/apps/Launcher3/目录下。我们可以看到，这其实也就是一个APP的项目结构。</p>
 <p><img src="/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg" alt=""></p>
 <p>从src目录点击去，找到Launcher.java文件<br><img src="/2019/01/29/Activity启动过程(二)/media/15487316429786/15487322574407.jpg" alt=""></p>
@@ -600,8 +601,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/28/Activity 启动过程(一)/" rel="next" title="HelloWorld">
-                <i class="fa fa-chevron-left"></i> HelloWorld
+              <a href="/2019/01/28/Activity 启动过程(一)/" rel="next" title="Activity启动过程(一)应用内打开Activity">
+                <i class="fa fa-chevron-left"></i> Activity启动过程(一)应用内打开Activity
               </a>
             
           </div>
@@ -722,7 +723,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Activity启动过程-二"><span class="nav-number">1.</span> <span class="nav-text">Activity启动过程(二)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#title-Activity启动过程-二-启动app"><span class="nav-number">1.</span> <span class="nav-text">title:Activity启动过程(二)启动app</span></a></li></ol></div>
             
 
           </div>
