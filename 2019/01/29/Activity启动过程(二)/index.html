@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="zh-CN">
+<html class="theme-next muse use-motion" lang="zh-">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -83,68 +83,68 @@
 <meta name="keywords" content="网站关键字, Android, Ktolin, Java, Life">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Zmy">
-<meta property="og:url" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/index.html">
+<meta property="og:url" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/index.html">
 <meta property="og:site_name" content="Zmy">
 <meta property="og:description" content="Activity启动过程(二)上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Launcher3/目录下。我们">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487322574407.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487328783787.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487331415014.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487331579468.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487331776712.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487332621449.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487333065171.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487333508688.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487333889767.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487334182969.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487334618209.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487335006338.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487335398396.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487335895726.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487336314547.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487341623636.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487408213932.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487409350887.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487409699970.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487410728639.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487415981670.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487417662487.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487418866087.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487419380911.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487419808363.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487437888305.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487441971363.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487442376188.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487447463552.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487448561992.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487448847706.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487449875265.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487453049937.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487454144295.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487456127785.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487457114590.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487460737751.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487461541081.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487461789309.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487463163879.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487480086771.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487486401757.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487486926251.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487487617244.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487488070786.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487488269697.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487493632458.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487490125298.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487491825259.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487494666943.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487495201782.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487497072768.jpg">
+<meta property="og:locale" content="zh-">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487322574407.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487328783787.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487331415014.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487331579468.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487331776712.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487332621449.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487333065171.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487333508688.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487333889767.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487334182969.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487334618209.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487335006338.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487335398396.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487335895726.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487336314547.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487341623636.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487408213932.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487409350887.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487409699970.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487410728639.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487415981670.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487417662487.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487418866087.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487419380911.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487419808363.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487437888305.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487441971363.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487442376188.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487447463552.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487448561992.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487448847706.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487449875265.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487453049937.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487454144295.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487456127785.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487457114590.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487460737751.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487461541081.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487461789309.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487463163879.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487480086771.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487486401757.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487486926251.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487487617244.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487488070786.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487488269697.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487493632458.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487490125298.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487491825259.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487494666943.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487495201782.jpg">
+<meta property="og:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487497072768.jpg">
 <meta property="og:updated_time" content="2019-01-29T08:38:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Zmy">
 <meta name="twitter:description" content="Activity启动过程(二)上一篇文章，我们是通过一个Activity启动另一个Activity来说明Activity的启动过程。而这篇文章，笔者将从启动一个APP的角度来说明一个Activity的启动过程。 通常我们是通过点击手机桌面的快捷入口来启动一个APP的。手机桌面也是一个APP，这个APP的源代码就是Launcher3，它在/packages/apps/Launcher3/目录下。我们">
-<meta name="twitter:image" content="http://yoursite.com/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg">
+<meta name="twitter:image" content="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/media/15487316429786/15487321554898.jpg">
 
 
 
@@ -174,7 +174,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/29/Activity启动过程(二)/"/>
+  <link rel="canonical" href="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/"/>
 
 
 
@@ -192,7 +192,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-">
 
   
   
@@ -287,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/29/Activity启动过程(二)/">
+    <link itemprop="mainEntityOfPage" href="https://zmylls.github.io/2019/01/29/Activity启动过程(二)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Asher.zhang">
